@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+        <ФИО="Василий Сергеевич Пупкин">
+                <Age>29</Age>
+                <Pet>1</Pet>
+                <Pay>1000</Pay>
+        </ФИО>
+</root>
