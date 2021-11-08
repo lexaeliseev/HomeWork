@@ -35,6 +35,7 @@ vim CheckLists.txt
 8. Запушить структуру на внешний репозиторий
 git add .
 git commit -m "шаблон чек-листа"
+git push
 
 9. На внешнем репозитории сделать Pull Request ветки CheckLists в main
 На сайте сделал merge веток.
