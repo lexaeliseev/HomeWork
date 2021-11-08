@@ -13,7 +13,7 @@ git branch postman и тд
 git push -u origin Postman
 git push -u origin --all
 
-3. В ветке Bag Reports сделать текстовый документ со структурой баг репорта
+3. В ветке Bug Reports сделать текстовый документ со структурой баг репорта
 > BugRep_test.txt
 vim BugRep_test.txt
 4. Запушить структуру багрепорта на внешний репозиторий
