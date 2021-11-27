@@ -64,6 +64,7 @@ Middle Automation QA engineer
 Senior Automation QA engineer
 
 Таблица roles_employee
+
 10) Создать таблицу roles_employee
 - id. Serial primary key,
 - employee_id. Int, not null, unique (внешний ключ для таблицы employees, поле id)
