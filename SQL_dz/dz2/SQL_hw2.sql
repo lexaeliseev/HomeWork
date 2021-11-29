@@ -81,6 +81,7 @@ insert into employees(employee_name)
 		('Алексей Осипик'),
 		('Мария Кольцова'),
 		('Роман Сеченов');
+	select * from employees ;
 delete from employees
 	where id=71 ;
 		
@@ -171,7 +172,8 @@ insert into employee_salary(employee_id, salary_id)
 			(79,14),
 			(80,2);
 select * from employee_salary ;
-
+delete  from employee_salary
+where id=41 ;
 --Таблица roles
 	--7) Создать таблицу roles
 		-- id. Serial primary key,
@@ -216,7 +218,7 @@ select * from roles ;
 		-- role_id. Int, not null (внешний ключ для таблицы roles, поле id)
 create table roles_employee( --создаем таблицу
 id serial primary key,		--указываем какие колонки
-employee_id int not null,	--указываем какие колонки
+employee_id int not null unique,	--указываем какие колонки
 role_id int not null,		--указываем какие колонки
 foreign key (employee_id)	--указываем колонку ЭТОЙ ТАБЛИЦЫ которую мы хотим связать
 references employees(id),	--указываем другую таблицу и колонку другой таблицы для связи с этой колонкой и таблицей
@@ -226,7 +228,7 @@ references roles(id)		--указываем другую таблицу и кол
 select * from roles_employee ;
 	--11) Наполнить таблицу roles_employee 40 строками:
 insert into roles_employee (employee_id, role_id)( --Когда перечисляю столбцы куда нужно вставить значения, то НЕ ЗАБЫВАЙ ПРО СКОБКУ для выражения!
-	values  (7,2),
+	values  (1,4),
 			(20,4),
 			(3,9),
 			(5,13),
@@ -253,7 +255,7 @@ insert into roles_employee (employee_id, role_id)( --Когда перечисл
 			(24,18),
 			(25,19),
 			(26,14),
-			(27,13),
+			(28,6),
 			(27,11),
 			(29,12),
 			(30,1),
