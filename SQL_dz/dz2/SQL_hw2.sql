@@ -3,7 +3,7 @@
 		-- id. serial, primary key,
 		-- employee_name. Varchar(50), not null
 create table employees (
-id serial not null primary key, --not null, чтобы автоматически заполнялось поле id
+id serial not null primary key, 
 employee_name varchar(50) not null
 );
 
@@ -205,11 +205,14 @@ values  ('Junior Python developer'),
 		('HR'),
 		('CEO'),
 		('Sales Manager'),
-		('Junior Auromation QA engineer'),
-		('Middle Auromation QA engineer'),
-		('Senior Auromation QA engineer')
+		('Junior Automation QA engineer'),
+		('Middle Automation QA engineer'),
+		('Senior Automation QA engineer')
 ) ;
-select * from roles ;
+select * from roles;
+update roles 
+set role_name = 'Senior Automation QA engineer'
+where id=20 ;
 
 --Таблица roles_employee
 	--10) Создать таблицу roles_employee
