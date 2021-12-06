@@ -15,24 +15,24 @@ inner join salary on employee_salary.salary_id = salary.id;
 -- 2. Вывести всех работников у которых ЗП меньше 2000.
  select employee_name, mountly_salary
 from employee_salary
-inner join employees  on employee_salary.id = employees.id
+inner join employees  on employee_salary.employee_id = employees.id
 inner join salary on employee_salary.salary_id = salary.id
 where mountly_salary < 2000;
 
 --3. Вывести все зарплатные позиции, но работник по ним не назначен. (ЗП есть, но не понятно кто её получает.)
-select * from employees 
+select employee_name, mountly_salary from employees 
 right join employee_salary on employees.id = employee_salary.employee_id
 right join salary on employee_salary.salary_id = salary.id 
 where employee_name is null ;
 
 --4. Вывести все зарплатные позиции  меньше 2000 но работник по ним не назначен. (ЗП есть, но не понятно кто её получает.)
-select * from employees 
+select employee_name, mountly_salary from employees 
 right join employee_salary on employees.id = employee_salary.employee_id 
 right join salary on employee_salary.salary_id = salary.id 
 where mountly_salary < 2000 and employee_name is null ;
 
 --5. Найти всех работников кому не начислена ЗП.
-select * from
+select employee_name from
 employees left join employee_salary on employees.id = employee_salary.employee_id
 where salary_id is null ;
 
@@ -91,8 +91,8 @@ select employee_name, mountly_salary
 from employees
 inner join roles_employee on employees.id = roles_employee.employee_id
 inner join roles on roles_employee.role_id = roles.id 
-inner join employee_salary on roles_employee.employee_id = employee_salary.employee_id
-inner join salary on employee_salary.salary_id = salary.id
+left join employee_salary on roles_employee.employee_id = employee_salary.employee_id
+left join salary on employee_salary.salary_id = salary.id
 where role_name like '%Middle%' ;
 
 --14. Вывести имена и зарплаты Senior специалистов
@@ -100,26 +100,26 @@ select employee_name, mountly_salary
 from employees 
 inner join roles_employee on employees.id = roles_employee.employee_id 
 inner join roles on roles_employee.role_id = roles.id 
-inner join employee_salary on roles_employee.employee_id = employee_salary.employee_id 
-inner join salary on employee_salary.salary_id = salary.id 
+left join employee_salary on roles_employee.employee_id = employee_salary.employee_id 
+left join salary on employee_salary.salary_id = salary.id 
 where role_name like '%Senior%' ;
 
 --15. Вывести зарплаты Java разработчиков
-select mountly_salary
+select mountly_salary, role_name
 from employees
 inner join roles_employee on employees.id = roles_employee.employee_id
 inner join roles on roles_employee.role_id = roles.id
-inner join employee_salary on roles_employee.employee_id = employee_salary.employee_id 
-inner join salary on employee_salary.salary_id = salary.id
+left join employee_salary on roles_employee.employee_id = employee_salary.employee_id 
+left join salary on employee_salary.salary_id = salary.id
 where role_name like '%Java dev%' ;
 
 -- 16. Вывести зарплаты Python разработчиков
-select mountly_salary
+select mountly_salary, role_name
 from employees
 inner join roles_employee on employees.id = roles_employee.employee_id
 inner join roles on roles_employee.role_id = roles.id
-inner join employee_salary on roles_employee.employee_id = employee_salary.employee_id 
-inner join salary on employee_salary.salary_id = salary.id
+left join employee_salary on roles_employee.employee_id = employee_salary.employee_id 
+left join salary on employee_salary.salary_id = salary.id
 where role_name like '%Python dev%' ;
 
 --17. Вывести имена и зарплаты Junior Python разработчиков 
@@ -132,7 +132,7 @@ inner join salary on employee_salary.salary_id = salary.id
 where role_name like '%Junior Python%' ;
 
 -- 18. Вывести имена и зарплаты Middle JS разработчиков
-select *
+select employee_name, mountly_salary
 from employees 
 inner join roles_employee on employees.id = roles_employee.employee_id
 inner join roles on roles_employee.role_id = roles.id
@@ -154,8 +154,8 @@ select employee_name, role_name, mountly_salary
 from employees 
 inner join roles_employee on employees.id = roles_employee.employee_id 
 inner join roles on roles_employee.role_id = roles.id 
-inner join employee_salary on roles_employee.employee_id = employee_salary.employee_id 
-inner join salary on employee_salary.salary_id = salary.id
+left join employee_salary on roles_employee.employee_id = employee_salary.employee_id 
+left join salary on employee_salary.salary_id = salary.id
 where role_name like '%Junior% %_% %QA%' ;
 
 --21. Вывести среднюю зарплату всех Junior специалистов
@@ -221,8 +221,8 @@ select employee_name, role_name, mountly_salary
 from employees
 inner join roles_employee on employees.id = roles_employee.employee_id 
 inner join roles on roles_employee.role_id = roles.id 
-inner join employee_salary on roles_employee.employee_id = employee_salary.employee_id 
-inner join salary on employee_salary.salary_id = salary.id 
+left join employee_salary on roles_employee.employee_id = employee_salary.employee_id 
+left join salary on employee_salary.salary_id = salary.id 
 order by mountly_salary ;
 
 -- 30. Вывести имена, должности и ЗП всех специалистов по возрастанию у специалистов у которых ЗП от 1700 до 2300
