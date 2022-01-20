@@ -1,0 +1,4 @@
+13:31:22.015 www.linkedin.com/:1 Refused to load manifest from 'https://static-exp1.licdn.com/sc/h/8ekldmhv4d8prk5sml735t6np' because it violates the following Content Security Policy directive: "manifest-src 'self'".
+
+13:31:25.768 www.linkedin.com/:1 Refused to load manifest from 'https://static-exp1.licdn.com/sc/h/8ekldmhv4d8prk5sml735t6np' because it violates the following Content Security Policy directive: "manifest-src 'self'".
+
